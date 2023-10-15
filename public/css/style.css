@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.text-justify {
+    text-align: justify !important;
+}
+
+.bg-primary-custom {
+    background: rgb(31, 59, 165);
+    background: linear-gradient(120deg, rgba(31, 59, 165, 1) 0%, rgba(31, 51, 119, 1) 60%);
+}
+
+.text-gredient {
+    background: -webkit-linear-gradient(120deg, rgba(31, 59, 165, 1) 0%, rgba(31, 51, 119, 1) 60%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.btn-primary-dark {
+    background-color: #213065;
+}
+
+.btn-primary-dark:hover {
+    color: #000 !important;
+    background-color: transparent;
+    transition: .6s ease-in-out;
+}
+
+.text-primary-custom {
+    color: #1f3ba5;
+}
+
+.text-primary-light-custom {
+    color: #4488C5;
+}
+
+.banner-heading {
+    font-size: 10vh;
+}
+
+/* #banner-sm-1{
+    left: -4%;
+    top: 5%;
+}
+
+#banner-sm-2{
+    right: 70px;
+    top: 100px;
+}
+
+#banner-sm-2{
+    
+}
+
+#banner-sm-2{
+    
+} */
+
+
+
+
+#services-sec {
+    background: url('../images/it-services-company-bg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#offers {
+    background: url('../images/home10_ellipse2.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card:hover {
+    background-color: #213065;
+    color: #fff;
+    transition: .6s ease-in-out;
+}
+
+#img-p {
+    position: relative;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    min-height: 80vh;
+
+}
+
+#img-p img{
+    position: absolute;
+}
+
+#img1 {
+    left: 0px;
+}
+
+#img2 {
+    left: 50px;
+}
+
+#img3 {
+    top: 50px;
+    left: 50px;
+}
+
+#img4 {
+    top: 220px;
+    left: 280px;
+}
+
+
+
+.height-100 {
+    height: 100vh;
+}
+
+
+/* about */
+.bgimg {
+    height: 330px;
+    background-image: url('../images/10024.jpg');
+    background-size: cover;
+}
+
+#about-vid-bg {
+    background-image: url('../images/10025.jpg');
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 350px;
+}
+
+.dot {
+    background: #dbd8e7;
+    width: 6px;
+    height: 6px;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.cover {
+    background-color: #FFFFFF;
+    box-shadow: 5px 2px 9px 0px #20316a87;
+    ;
+    height: 130px;
+}
+
+.cover img {
+    width: 200px;
+}
+
+.title p {
+    font-size: 18px;
+}
+
+.video button {
+    background-color: #213065;
+    background-image: linear-gradient(90deg, #213065 0%, #1A3DB7 100%);
+    border: none;
+}
+
+.video button:hover {
+    background-color: #213065;
+    background-image: linear-gradient(90deg, #a162db 0%, #a162db 100%);
+}
+
+.textbtn {
+    background-color: #213065;
+    background-image: linear-gradient(90deg, #213065 0%, #1A3DB7 100%);
+    padding: 14px;
+    font-size: 14px;
+}
+
+.timeline {
+    border-left: 1px solid hsl(0, 0%, 90%);
+    position: relative;
+    list-style: none;
+}
+
+.timeline .timeline-item {
+    position: relative;
+}
+
+.timeline .timeline-item:after {
+    position: absolute;
+    display: block;
+    top: 0;
+    background-color: #213065;
+    left: -38px;
+    border-radius: 50%;
+    height: 11px;
+    width: 11px;
+    content: "";
+}
+
+.timeline-item p {
+    font-size: 17px;
+}
+
+.shad {
+    box-shadow: 5px 2px 9px 0px #20316a87;
+    transition: 0.5s;
+}
+
+.shad:hover {
+    color: white;
+    background-color: #213065;
+}
+
+input {
+    width: 100%;
+    padding: 7px 3px;
+    border: 2px solid #bac4e9;
+    border-width: 0px 0px 2px 0px;
+    font-size: 14px;
+}
+
+input:focus {
+    outline: none;
+    border: 2px solid #bac4e9;
+    border-width: 0px 0px 2px 0px;
+}
+
+.area {
+    width: 100%;
+    padding: 7px 3px;
+    border: 2px solid #bac4e9;
+    border-width: 0px 0px 2px 0px;
+    font-size: 14px;
+}
+
+.area:focus {
+    outline: none;
+    border: 2px solid #bac4e9;
+    border-width: 0px 0px 2px 0px;
+}
+/* end about */
+
+
+/* contact */
+
+
+
+/* end contact */
+
+
+/* courses */
+
+.card-custom
+{
+    width: 280px;
+    height: 215px;
+    margin: 30px 10px;
+    padding: 20px 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    transition: 0.3s ease-in-out;
+}
+.card-custom:hover
+{
+    height: 450px;
+}
+.card-custom .imgContainer
+{
+    position: relative;
+    /* width:300px;
+    height:250px; */
+    top:-40px;
+    /* left:10px; */
+    z-index: 1;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+.card-custom .imgContainer img
+{
+    border-radius: 4px;
+}
+.card-custom .content
+{
+    position: relative;
+    margin-top: -140px;
+    padding: 10px 15px;
+    text-align: center;
+    color:#111;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s ease-in-out;
+}
+.card-custom:hover .content
+{
+    visibility: visible;
+    opacity: 1;
+    margin-top: -40px;
+    transition-delay: 0.3s;
+}
+
+@media (min-width: 900px)
+{
+    .card-custom
+    {
+        width: 335px;
+    }
+
+}
+
+/* end courses */
