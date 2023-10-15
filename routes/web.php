@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LeadsController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SuperAdminController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,7 +45,22 @@ Route::group(['prefix' => 'super-admin','middleware'=>['web','isSuperAdmin']],fu
 
 // ********** Admin Role Routes *************
 Route::group(['prefix' => 'admin','middleware'=>['web','isAdmin']],function(){
-    Route::get('dashboard',[AdminController::class,'index']);
+    Route::get('dashboard',[AdminController::class,'index'])->name('admin.dashboard');
+
+    //*** Course Routes ***/
+    Route::get('/courses',[CourseController::class,'index'])->name('admin.courses.index');
+    Route::get('/courses/create',[CourseController::class,'create'])->name('admin.courses.create');
+
+    //*** Contact Leads Routes ***/
+    Route::get('/leads',[LeadsController::class,'index'])->name('admin.leads.index');
+
+    //*** Students Routes ***/
+    Route::get('/students',[StudentController::class,'index'])->name('admin.students.index');
+    Route::get('/students/create',[StudentController::class,'create'])->name('admin.students.create');
+
+
+
+
 });
 
 
