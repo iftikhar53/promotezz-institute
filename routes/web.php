@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LeadsController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SuperAdminController;
+use App\Http\Controllers\TempImagesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -50,6 +51,10 @@ Route::group(['prefix' => 'admin','middleware'=>['web','isAdmin']],function(){
     //*** Course Routes ***/
     Route::get('/courses',[CourseController::class,'index'])->name('admin.courses.index');
     Route::get('/courses/create',[CourseController::class,'create'])->name('admin.courses.create');
+    Route::post('/courses', [CourseController::class, 'store'])->name('admin.courses.store');
+    Route::get('/courses/{course}/edit', [CourseController::class, 'edit'])->name('admin.courses.edit');
+    Route::put('/courses/{course}', [CourseController::class, 'update'])->name('admin.courses.update');
+    Route::delete('/courses/{course}', [CourseController::class, 'destroy'])->name('admin.courses.delete');
 
     //*** Contact Leads Routes ***/
     Route::get('/leads',[LeadsController::class,'index'])->name('admin.leads.index');
@@ -59,7 +64,8 @@ Route::group(['prefix' => 'admin','middleware'=>['web','isAdmin']],function(){
     Route::get('/students/create',[StudentController::class,'create'])->name('admin.students.create');
 
 
-
+    //temp-images.create
+    Route::post('/upload-temp-image', [TempImagesController::class, 'create'])->name('temp-images.create');
 
 });
 

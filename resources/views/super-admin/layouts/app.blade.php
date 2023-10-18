@@ -21,10 +21,7 @@
     <link rel="stylesheet" href="{{ asset('admin-assets/plugins/select2/css/select2.min.css') }}">
 
     <link href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
-    <link href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css">
-    <link href="https://cdn.datatables.net/v/dt/jszip-3.10.1/dt-1.13.6/b-2.4.2/b-html5-2.4.2/b-print-2.4.2/cr-1.7.0/date-1.5.1/fh-3.4.0/datatables.min.css" rel="stylesheet">
 
-    
 
     <link rel="stylesheet" href="{{ asset('admin-assets/css/custom.css') }}">
 </head>
@@ -59,8 +56,8 @@
                             width="40" height="40" alt="">
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-3">
-                        <h4 class="h4 mb-0"><strong>{{Auth::guard('web')->user()->name}}</strong></h4>
-                        <div class="mb-3">{{Auth::guard('web')->user()->email}}</div>
+                        <h4 class="h4 mb-0"><strong>user name</strong></h4>
+                        <div class="mb-3">user email</div>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item">
                             <i class="fas fa-user-cog mr-2"></i> Settings
@@ -110,13 +107,6 @@
     <script src="{{ asset('admin-assets/js/demo.js') }}"></script>
 
     <script src="https:////cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
-<script src="https://cdn.datatables.net/v/dt/jszip-3.10.1/dt-1.13.6/b-2.4.2/b-html5-2.4.2/b-print-2.4.2/cr-1.7.0/date-1.5.1/fh-3.4.0/datatables.min.js"></script>
-
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
