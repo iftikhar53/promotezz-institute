@@ -26,6 +26,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('admin.trainers.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-file-alt"></i>
+                        <p>Trainers</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('admin.leads.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-file-alt"></i>
                         <p>Contact Leads</p>
@@ -53,6 +59,13 @@
                     <a href="pages.html" class="nav-link">
                         <i class="nav-icon  far fa-file-alt"></i>
                         <p>Pages</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('front.home')}}" target="_blank" class="nav-link">
+                        {{-- <i class="nav-icon  far fa-laptop-code"></i> --}}
+                        <img src="{{asset('admin-assets/img/live3.png')}}" class="img-fluid" alt="">
+                        <p>Visit Website</p>
                     </a>
                 </li>
             </ul>

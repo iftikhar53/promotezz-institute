@@ -7,10 +7,10 @@
         <div class="container-fluid my-2">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Courses</h1>
+                    <h1>Trainers</h1>
                 </div>
                 <div class="col-sm-6 text-right">
-                    <a href="{{ route('admin.courses.create') }}" class="btn btn-primary">New Course</a>
+                    <a href="{{ route('admin.trainers.create') }}" class="btn btn-primary">New Trainer</a>
                 </div>
             </div>
         </div>
@@ -30,22 +30,26 @@
                         <thead>
                             <tr>
                                 <th scope="col">Sr.</th>
+                                <th scope="col">Trainer Name</th>
                                 <th scope="col">Course</th>
-                                <th scope="col">Fee</th>
+                                <th scope="col">Mobile #</th>
+                                <th scope="col">Email</th>
                                 <th scope="col">Status</th>
                                 {{-- <th scope="col">Created By</th> --}}
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @if ($courses->isNotEmpty())
-                                @foreach ($courses as $key => $course)
+                            @if ($trainers->isNotEmpty())
+                                @foreach ($trainers as $key => $trainer)
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
-                                        <td>{{ $course->name }}</td>
-                                        <td>{{ $course->fee }}</td>
+                                        <td>{{ $trainer->name }}</td>
+                                        <td>{{ $trainer->Course->name }}</td>
+                                        <td>{{ $trainer->mobile_number }}</td>
+                                        <td>{{ $trainer->email }}</td>
                                         <td>
-                                            @if ($course->status == 1)
+                                            @if ($trainer->status == 1)
                                                 <svg class="text-success-500 h-6 w-6 text-success"
                                                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                     stroke-width="2" stroke="currentColor" aria-hidden="true">
@@ -62,9 +66,9 @@
                                                 </svg>
                                             @endif
                                         </td>
-                                        {{-- <td>{{ $course->user->name }}</td> --}}
+                                        {{-- <td>{{ $trainer->user->name }}</td> --}}
                                         <td>
-                                            <a href="{{ route('admin.courses.edit', $course->id) }}">
+                                            <a href="{{ route('admin.trainers.edit', $trainer->id) }}">
                                                 <svg class="filament-link-icon w-4 h-4 mr-1"
                                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                                                     fill="currentColor" aria-hidden="true">
@@ -74,7 +78,6 @@
                                                 </svg>
                                             </a>
                                             <a href="" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"
-                                                
                                                 class="text-danger w-4 h-4 mr-1">
                                                 <svg wire:loading.remove.delay="" wire:target=""
                                                     class="filament-link-icon w-4 h-4 mr-1"
@@ -87,21 +90,24 @@
                                             </a>
                                             <div class="modal" tabindex="-1" role="dialog" id="confirmDeleteModal">
                                                 <div class="modal-dialog" role="document">
-                                                  <div class="modal-content">
-                                                    <div class="modal-header">
-                                                      <h5 class="modal-title">Confirm Deletion</h5>
-                                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">Confirm Deletion</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p>Are you sure you want to delete this Trainer?</p>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-bs-dismiss="modal">Cancel</button>
+                                                            <button type="button" class="btn btn-danger"
+                                                                onclick="deleteTrainer({{ $trainer->id }})">Delete</button>
+                                                        </div>
                                                     </div>
-                                                    <div class="modal-body">
-                                                      <p>Are you sure you want to delete this course?</p>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                                      <button type="button" class="btn btn-danger" onclick="deleteCourse({{$course->id}})">Delete</button>
-                                                    </div>
-                                                  </div>
                                                 </div>
-                                              </div>
+                                            </div>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -123,41 +129,42 @@
             $('#courseTbl').DataTable({
                 dom: 'Bfrtip',
                 buttons: [
-                    'copy', 'csv', 'excel', 'pdf', 'print','colvis'
+                    'copy', 'csv', 'excel', 'pdf', 'print', 'colvis'
                 ]
             });
+
         });
 
-        function deleteCourse(id) {
-            var url = '{{ route('admin.courses.delete', 'ID') }}';
+
+
+
+        function deleteTrainer(id) {
+            var url = '{{ route('admin.trainers.delete', 'ID') }}';
             //alert(url);
 
             var newURL = url.replace("ID", id);
             // alert(newURL);
 
             // return false;
-            
-                $.ajax({
-                    url: newURL,
-                    type: 'DELETE', // Use the DELETE method
-                    data: {}, // You can remove this line if you're not sending any data
-                    dataType: 'json',
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    success: function(response) {
-                        if (response["status"]) {
-                            window.location.href = "{{ route('admin.courses.index') }}";
-                        }
-                    },
-                    error: function(xhr, textStatus, errorThrown) {
-                        // Handle error here, if needed
-                        console.log("Error:", textStatus, errorThrown);
+
+            $.ajax({
+                url: newURL,
+                type: 'DELETE', // Use the DELETE method
+                data: {}, // You can remove this line if you're not sending any data
+                dataType: 'json',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(response) {
+                    if (response["status"]) {
+                        window.location.href = "{{ route('admin.trainers.index') }}";
                     }
-                });
-            
-
+                },
+                error: function(xhr, textStatus, errorThrown) {
+                    // Handle error here, if needed
+                    console.log("Error:", textStatus, errorThrown);
+                }
+            });
         }
-
     </script>
 @endsection

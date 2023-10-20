@@ -8,6 +8,7 @@ use App\Http\Controllers\LeadsController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\TempImagesController;
+use App\Http\Controllers\TrainerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,6 +56,14 @@ Route::group(['prefix' => 'admin','middleware'=>['web','isAdmin']],function(){
     Route::get('/courses/{course}/edit', [CourseController::class, 'edit'])->name('admin.courses.edit');
     Route::put('/courses/{course}', [CourseController::class, 'update'])->name('admin.courses.update');
     Route::delete('/courses/{course}', [CourseController::class, 'destroy'])->name('admin.courses.delete');
+
+    //*** Trainers Routes ***/
+    Route::get('/trainers',[TrainerController::class,'index'])->name('admin.trainers.index');
+    Route::get('/trainers/create',[TrainerController::class,'create'])->name('admin.trainers.create');
+    Route::post('/trainers', [TrainerController::class, 'store'])->name('admin.trainers.store');
+    Route::get('/trainers/{trainer}/edit', [TrainerController::class, 'edit'])->name('admin.trainers.edit');
+    Route::put('/trainers/{trainer}', [TrainerController::class, 'update'])->name('admin.trainers.update');
+    Route::delete('/trainers/{trainer}', [TrainerController::class, 'destroy'])->name('admin.trainers.delete');
 
     //*** Contact Leads Routes ***/
     Route::get('/leads',[LeadsController::class,'index'])->name('admin.leads.index');

@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Role;
+use App\Models\Trainer;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -47,4 +49,12 @@ class User extends Authenticatable
     {
         return $this->hasOne(Role::class,'id', 'role');
     }
+
+
+    // Define the "has many" relationship with the trainers table.
+    public function trainers() {
+        return $this->hasMany(Trainer::class);
+    }
+
+
 }
