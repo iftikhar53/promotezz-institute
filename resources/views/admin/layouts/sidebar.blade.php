@@ -32,6 +32,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('admin.batches.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-file-alt"></i>
+                        <p>Batches</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('admin.leads.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-file-alt"></i>
                         <p>Contact Leads</p>

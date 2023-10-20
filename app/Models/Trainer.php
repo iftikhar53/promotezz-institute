@@ -24,4 +24,9 @@ class Trainer extends Model
         return $this->belongsTo(course::class);
     }
 
+    public function batches()
+    {
+        return $this->hasMany(Batch::class);
+    }
+
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BatchController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\AuthController;
@@ -64,6 +65,14 @@ Route::group(['prefix' => 'admin','middleware'=>['web','isAdmin']],function(){
     Route::get('/trainers/{trainer}/edit', [TrainerController::class, 'edit'])->name('admin.trainers.edit');
     Route::put('/trainers/{trainer}', [TrainerController::class, 'update'])->name('admin.trainers.update');
     Route::delete('/trainers/{trainer}', [TrainerController::class, 'destroy'])->name('admin.trainers.delete');
+
+    //*** batches Routes ***/
+    Route::get('/batches',[BatchController::class,'index'])->name('admin.batches.index');
+    Route::get('/batches/create',[BatchController::class,'create'])->name('admin.batches.create');
+    Route::post('/batches', [BatchController::class, 'store'])->name('admin.batches.store');
+    Route::get('/batches/{batch}/edit', [BatchController::class, 'edit'])->name('admin.batches.edit');
+    Route::put('/batches/{batch}', [BatchController::class, 'update'])->name('admin.batches.update');
+    Route::delete('/batches/{batch}', [BatchController::class, 'destroy'])->name('admin.batches.delete');
 
     //*** Contact Leads Routes ***/
     Route::get('/leads',[LeadsController::class,'index'])->name('admin.leads.index');
