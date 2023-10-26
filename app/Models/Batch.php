@@ -19,5 +19,13 @@ class Batch extends Model
         return $this->belongsTo(Trainer::class, 'trainer_id');
     }
 
+    public function students()
+    {
+        return $this->belongsToMany(Student::class);
+    }
+
+    public function branch(){
+        return $this->belongsTo(branch::class);
+    }
 
 }

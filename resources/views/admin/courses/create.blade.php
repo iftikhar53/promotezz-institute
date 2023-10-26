@@ -31,6 +31,7 @@
             <form action="" method="POST" id="courseForm" name="courseForm">
 
                 <input type="hidden" name="userid" value="{{ Auth::guard('web')->user()->id }}">
+                <input type="hidden" name="branchid" value="{{ Auth::guard('web')->user()->branch_id }}">
                 <div class="card">
                     <div class="card-body">
                         <div class="row">

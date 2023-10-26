@@ -14,7 +14,8 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('course_id')->constrained()->onDelete('cascade');
             $table->foreignId('trainer_id')->constrained()->onDelete('cascade');
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id');
+            $table->foreignId('branch_id');
             $table->string('name');
             $table->date('start_date'); // Add this column for batch start date
             $table->date('end_date');   // Add this column for batch end date

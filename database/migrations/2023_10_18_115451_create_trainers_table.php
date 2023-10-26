@@ -14,11 +14,12 @@ return new class extends Migration
         Schema::create('trainers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('course_id')->constrained()->onDelete('cascade');
+            $table->foreignId('branch_id');
             $table->string('name');
             $table->string('mobile_number', 20)->nullable();
             $table->string('email')->nullable();
             $table->tinyInteger('status')->default(0); // 0 for disable, 1 for enable
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id');
             $table->timestamps();
         });
     }

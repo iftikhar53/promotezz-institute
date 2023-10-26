@@ -26,4 +26,8 @@ class course extends Model
         return $this->hasMany(Batch::class);
     }
 
+    public function branch(){
+        return $this->belongsToMany(branch::class);
+    }
+
 }

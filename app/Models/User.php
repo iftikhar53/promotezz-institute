@@ -56,5 +56,9 @@ class User extends Authenticatable
         return $this->hasMany(Trainer::class);
     }
 
+    public function branch(){
+        return $this->belongsTo(branch::class);
+    }
+
 
 }

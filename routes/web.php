@@ -80,6 +80,7 @@ Route::group(['prefix' => 'admin','middleware'=>['web','isAdmin']],function(){
     //*** Students Routes ***/
     Route::get('/students',[StudentController::class,'index'])->name('admin.students.index');
     Route::get('/students/create',[StudentController::class,'create'])->name('admin.students.create');
+    Route::delete('/students/{student}', [StudentController::class, 'destroy'])->name('admin.students.delete');
 
 
     //temp-images.create
